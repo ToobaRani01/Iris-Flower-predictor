@@ -6,7 +6,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
 # load data
-data = sns.load_dataset("iris")
+# data = sns.load_dataset("iris")
+# Direct URL se load karein taake download/save ka jhanjhat khatam ho
+url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv"
+data = pd.read_csv(url)
 
 # labels and features
 
@@ -29,4 +32,5 @@ accuracy
 # predict on new data
 def predict_species (features) : 
     prediction = model.predict(pd.DataFrame([features] , columns=X.columns))
+
     return prediction[0]
